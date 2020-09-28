@@ -20,8 +20,8 @@
 #include "myfunctional/functional.h"
 #include <cmath>                    // for std::sqrt
 #include <chrono>                   // for std::chrono
+#include <iomanip>					// for std::setiosflags, std::setprecision
 #include <iostream>                 // for std::cerr, std::cout
-#include <boost/format.hpp>         // for boost::format
 
 static auto constexpr INTEGTABLENUM = 10000;
 
@@ -29,13 +29,16 @@ int main()
 {
     using namespace std::chrono;
     auto const start = system_clock::now();
-    
+
     auto const func = myfunctional::make_functional([](double x) { return 0.5 * (1.0 / std::sqrt(x)); });
     gausslegendre::Gauss_Legendre gl(INTEGTABLENUM);
     auto const result = gl.qgauss(func, 1.0, 4.0); 
 
     auto const end = system_clock::now();
 
-    std::cout << boost::format("積分結果 = %.14f\n") % result;
-    std::cout << boost::format("計算時間 = %.6f（秒）\n") % duration_cast< duration<double> >(end - start).count();
+	std::cout << std::setiosflags(std::ios::fixed);
+	std::cout << std::setprecision(14);
+    std::cout << "積分結果 = " << result << "\n";
+    std::cout << std::setprecision(6);
+    std::cout << "計算時間 = " << duration_cast< duration<double> >(end - start).count() << "（秒）" << std::endl;
 }

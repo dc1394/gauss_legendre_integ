@@ -19,7 +19,6 @@
 #include "../../alglib/src/integration.h"	// for alglib
 #include "gausslegendre.h"
 #include <stdexcept>					    // for std::runtime_error
-#include <boost/cast.hpp>				    // for boost::numeric_cast
 
 namespace gausslegendre {
     // #region コンストラクタ
@@ -30,7 +29,7 @@ namespace gausslegendre {
         alglib::real_1d_array x, w;
 
         alglib::gqgenerategausslegendre(
-            boost::numeric_cast<alglib::ae_int_t>(n),
+            static_cast<alglib::ae_int_t>(n),
             info,
             x,
             w);
@@ -45,4 +44,3 @@ namespace gausslegendre {
 
     // #endregion コンストラクタ
 }
-
