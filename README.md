@@ -15,7 +15,7 @@
 　v3.0）です。
 --------------------------------------------------------------------------------
 　gauss_legendre_integ
-　Copyright (C) 2019 @dc1394
+　Copyright (C) 2020 @dc1394
 
 　gauss_legendre_integにはALGLIB ProjectによるALGLIB®を使用しています。こちらの
 　ライセンスはGPL 2+になります。
