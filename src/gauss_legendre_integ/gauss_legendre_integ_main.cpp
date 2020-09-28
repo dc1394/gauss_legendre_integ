@@ -37,5 +37,5 @@ int main()
     auto const end = system_clock::now();
 
     std::cout << boost::format("積分結果 = %.14f\n") % result;
-    std::cout << boost::format("計算時間 = %.6f\n") % duration_cast< duration<double> >(end - start).count();
+    std::cout << boost::format("計算時間 = %.6f（秒）\n") % duration_cast< duration<double> >(end - start).count();
 }
